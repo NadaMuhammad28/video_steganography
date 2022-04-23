@@ -3,3 +3,7 @@
 
 **Files Types we wanna hide**
 - TEXT - IMAGES
+
+## logic
+- **Data Encryption and Decryption using Cryptography algorithms**
+- **Hiding these data in video for a higher level of security**
