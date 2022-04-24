@@ -12,23 +12,6 @@ import os
 from stegano import lsb
 import math
 
-# split input text to be hidden
-def split_string(s_str, count=10):
-    per_c = math.ceil(len(s_str) / count)
-    c_cout = 0
-    out_str = ''
-    split_list = []
-    for s in s_str:
-        out_str += s
-        c_cout += 1
-        if c_cout == per_c:
-            split_list.append(out_str)
-            out_str = ''
-            c_cout = 0
-    if c_cout != 0:
-        split_list.append(out_str)
-    return split_list
-
 # Extract frames (i.e digital imgs from video) in directory ./tmp
 def frame_extraction(video):
     if not os.path.exists("./tmp"):
@@ -49,6 +32,26 @@ def frame_extraction(video):
         # save image
         cv2.imwrite(os.path.join(temp_folder, "{:d}.png".format(count)), image)
         count += 1
+        
+     
+    
+# split input text to be hidden
+def split_string(s_str, count=10):
+    per_c = math.ceil(len(s_str) / count)
+    c_cout = 0
+    out_str = ''
+    split_list = []
+    for s in s_str:
+        out_str += s
+        c_cout += 1
+        if c_cout == per_c:
+            split_list.append(out_str)
+            out_str = ''
+            c_cout = 0
+    if c_cout != 0:
+        split_list.append(out_str)
+    return split_list
+
 
 # hide split text in video frames
 def encode_string(input_string, root="./tmp/"):
