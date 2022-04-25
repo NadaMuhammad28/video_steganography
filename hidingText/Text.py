@@ -65,7 +65,7 @@ def encode_string(input_string, root="./tmp/"):
         print("frame {} holds {}".format(f_name, split_string_list[i]))
 
 # return original text data 
-def decode_string(video):
+def decode_string():
     secret = []
     root = "./tmp/"
     for i in range(len(os.listdir(root))):
