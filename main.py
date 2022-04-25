@@ -18,7 +18,7 @@ def hideTxt():
             Text.frame_extraction(f_name)
             Text.encode_string(input_string)
         elif choice == '2':
-            Text.decode_string(input("enter the name of video with extension: "))
+            Text.decode_string()
         else:
             break
 
