@@ -84,6 +84,12 @@ def merge_rgb(rgb1, rgb2):
     return rgb
 
 
+"""
+Merge two images. The second one will be merged into the first one.
+        :param img1: First image
+        :param img2: Second image
+        :return: A new merged image.
+"""
 def merge(img1, img2):
     # Check the images dimensions
     if img2.size[0] > img1.size[0] or img2.size[1] > img1.size[1]:
