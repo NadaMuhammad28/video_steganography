@@ -142,7 +142,7 @@ def unmerge(img):
         for i in range(img.size[0]):
             for j in range(img.size[1]):
                 # Get the RGB (as a string tuple) from the current pixel
-                r, g, b = Steganography.__int_to_bin(pixel_map[i, j])
+                r, g, b = int_to_bin(pixel_map[i, j])
 
                 # Extract the last 4 bits (corresponding to the hidden image)
                 # Concatenate 4 zero bits because we are working with 8 bit
@@ -151,7 +151,7 @@ def unmerge(img):
                        b[4:] + '0000')
 
                 # Convert it to an integer tuple
-                pixels_new[i, j] = 
+                pixels_new[i, j] = bin_to_int(rgb)
 
 temp_folder = "./tmp_img/"
 
