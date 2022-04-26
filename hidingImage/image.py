@@ -68,6 +68,13 @@ def bin_to_int(rgb):
             int(b, 2))
 
 
+"""
+Merge two RGB tuples.
+        :param rgb1: A string tuple (e.g. ("00101010", "11101011", "00010110"))
+        :param rgb2: Another string tuple
+        (e.g. ("00101010", "11101011", "00010110"))
+        :return: An integer tuple with the two RGB values merged.
+"""
 def merge_rgb(rgb1, rgb2):
     r1, g1, b1 = rgb1
     r2, g2, b2 = rgb2
