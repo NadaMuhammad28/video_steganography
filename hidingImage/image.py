@@ -44,6 +44,11 @@ def encode_video(input_image, frame_count, root="./tmp_img/"):
         print("[INFO] frame {} holds {}".format(f_name, split_image_list[i]))
 
 
+"""
+Convert an integer tuple to a binary (string) tuple.
+        :param rgb: An integer tuple (e.g. (220, 110, 96))
+        :return: A string tuple (e.g. ("00101010", "11101011", "00010110"))
+"""
 def int_to_bin(rgb):
     r, g, b = rgb
     return ('{0:08b}'.format(r),
