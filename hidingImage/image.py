@@ -122,5 +122,46 @@ def merge(img1, img2):
     return new_image
 
 
+def unmerge(img):
+
+        """ Unmerge an image.
+        :param img: The input image.
+        :return: The unmerged/extracted image.
+        """
+
+        # Load the pixel map
+        pixel_map = img.load()
+
+        # Create the new image and load the pixel map
+        new_image = Image.new(img.mode, img.size)
+        pixels_new = new_image.load()
+
+        # Tuple used to store the image original size
+        original_size = img.size
+
+        for i in range(img.size[0]):
+            for j in range(img.size[1]):
+                # Get the RGB (as a string tuple) from the current pixel
+                r, g, b = Steganography.__int_to_bin(pixel_map[i, j])
+
+                # Extract the last 4 bits (corresponding to the hidden image)
+                # Concatenate 4 zero bits because we are working with 8 bit
+                rgb = (r[4:] + '0000',
+                       g[4:] + '0000',
+                       b[4:] + '0000')
+
+                # Convert it to an integer tuple
+                pixels_new[i, j] = Steganography.__bin_to_int(rgb)
+
+                # If this is a 'valid' position, store it
+                # as the last valid position
+                if pixels_new[i, j] != (0, 0, 0):
+                    original_size = (i + 1, j + 1)
+
+        # Crop the image based on the 'valid' pixels
+        new_image = new_image.crop((0, 0, original_size[0], original_size[1]))
+
+        return new_image
+
 temp_folder = "./tmp_img/"
 
