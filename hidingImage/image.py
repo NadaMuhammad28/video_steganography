@@ -56,6 +56,11 @@ def int_to_bin(rgb):
             '{0:08b}'.format(b))
 
 
+"""
+Convert a binary (string) tuple to an integer tuple.
+        :param rgb: A string tuple (e.g. ("00101010", "11101011", "00010110"))
+        :return: Return an int tuple (e.g. (220, 110, 96))
+"""
 def bin_to_int(rgb):
     r, g, b = rgb
     return (int(r, 2),
