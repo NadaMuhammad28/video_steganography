@@ -151,17 +151,7 @@ def unmerge(img):
                        b[4:] + '0000')
 
                 # Convert it to an integer tuple
-                pixels_new[i, j] = Steganography.__bin_to_int(rgb)
-
-                # If this is a 'valid' position, store it
-                # as the last valid position
-                if pixels_new[i, j] != (0, 0, 0):
-                    original_size = (i + 1, j + 1)
-
-        # Crop the image based on the 'valid' pixels
-        new_image = new_image.crop((0, 0, original_size[0], original_size[1]))
-
-        return new_image
+                pixels_new[i, j] = 
 
 temp_folder = "./tmp_img/"
 
